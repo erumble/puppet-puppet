@@ -1,30 +1,21 @@
 # puppet::agent::config
-class puppet::agent::config(
-  $always_cache_features = true,
-  $ca_server             = undef,
-  $dns_alt_names         = undef,
-  $environment           = undef,
-  $reports               = undef,
-  $report_server         = undef,
-  $runinterval           = undef,
-  $server                = undef,
-  $strict_variables      = false,
-) {
+class puppet::agent::config
+{
   $ini_setting_defaults = {
     'path' => "${::puppet::dir}/puppet.conf",
   }
 
   $ini_settings = {
     'main' => {
-      'always_cache_features' => $always_cache_features,
-      'ca_server'             => $ca_server,
-      'dns_alt_names'         => $dns_alt_names,
-      'environment'           => $environment,
-      'reports'               => $reports,
-      'report_server'         => $report_server,
-      'runinterval'           => $runinterval,
-      'server'                => $server,
-      'strict_variables'      => $strict_variables,
+      'always_cache_features' => $::puppet::agent::always_cache_features,
+      'ca_server'             => $::puppet::agent::ca_server,
+      'dns_alt_names'         => $::puppet::agent::dns_alt_names,
+      'environment'           => $::puppet::agent::environment,
+      'reports'               => $::puppet::agent::reports,
+      'report_server'         => $::puppet::agent::report_server,
+      'runinterval'           => $::puppet::agent::runinterval,
+      'server'                => $::puppet::agent::server,
+      'strict_variables'      => $::puppet::agent::strict_variables,
     }
   }
 

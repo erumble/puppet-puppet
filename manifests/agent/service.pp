@@ -1,11 +1,9 @@
 # puppet::agent::service
-class puppet::agent::service(
-  $ensure = 'running',
-  $enable = true,
-) {
+class puppet::agent::service
+{
   service { 'puppet':
-    ensure     => $ensure,
-    enable     => $enable,
+    ensure     => $::puppet::agent::ensure,
+    enable     => $::puppet::agent::enable,
     hasrestart => true,
     hasstatus  => true,
   }
