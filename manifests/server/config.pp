@@ -25,8 +25,6 @@ class puppet::server::config
     changes => [
       "set JAVA_ARGS '\"-Xms${::puppet::server::java_Xms} -Xmx${::puppet::server::java_Xmx}\"'",
     ],
-    require => Package['puppetserver'],
-    notify  => Service['puppetserver'],
   }  
 }
 

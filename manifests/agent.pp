@@ -1,7 +1,8 @@
 # puppet::agent
 class puppet::agent(
   # config parameters
-  $always_cache_features = true,
+  # undef parameters will not be written to config files
+  $always_cache_features = undef,
   $ca_server             = undef,
   $dns_alt_names         = undef,
   $environment           = undef,
@@ -9,7 +10,7 @@ class puppet::agent(
   $report_server         = undef,
   $runinterval           = undef,
   $server                = undef,
-  $strict_variables      = false,
+  $strict_variables      = undef,
 
   # service parameters
   $ensure = 'running',

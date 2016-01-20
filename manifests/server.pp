@@ -1,14 +1,15 @@
 # puppet::server
 class puppet::server(
-  # install params
+  # install parameters
   $manage_packages = true,
   $package_name    = 'puppetserver',
   $package_version = 'latest',
 
-  # config params
+  # config parameters
+  # undef parameters will not be written to config files
   $java_Xms             = '2g',
   $java_Xmx             = '2g',
-  $ca                   = false,
+  $ca                   = undef,
   $ca_server            = undef,
   $autosign             = undef,
   $storeconfigs         = undef,
@@ -16,7 +17,7 @@ class puppet::server(
   $external_nodes       = undef,
   $storeconfigs_backend = undef,
 
-  # service params
+  # service parameters
   $ensure = 'running',
   $enable = true,
 ) {
