@@ -14,7 +14,7 @@ class puppet::server::config
       'external_nodes'       => $::puppet::server::external_nodes,
       'storeconfigs'         => $::puppet::server::storeconfigs,
       'storeconfigs_backend' => $::puppet::server::storeconfigs_backend,
-    }
+    }.filter |$key, $value| { $value != undef }
   }
 
   create_ini_settings($ini_settings, $ini_setting_defaults)

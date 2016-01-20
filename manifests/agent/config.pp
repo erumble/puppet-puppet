@@ -2,7 +2,7 @@
 class puppet::agent::config
 {
   $ini_setting_defaults = {
-    'path' => "${::puppet::dir}/puppet.conf",
+    'path' => "/etc/puppetlabs/puppet/puppet.conf",
   }
 
   $ini_settings = {
@@ -16,7 +16,7 @@ class puppet::agent::config
       'runinterval'           => $::puppet::agent::runinterval,
       'server'                => $::puppet::agent::server,
       'strict_variables'      => $::puppet::agent::strict_variables,
-    }
+    }.filter |$key, $value| { $value != undef }
   }
 
   create_ini_settings($ini_settings, $ini_setting_defaults)
