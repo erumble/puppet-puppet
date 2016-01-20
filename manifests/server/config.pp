@@ -1,26 +1,19 @@
 # puppet::server::config
-class puppet::server::config(
-  $ca                   = false,
-  $ca_server            = undef,
-  $autosign             = undef,
-  $storeconfigs         = undef,
-  $node_terminus        = undef,
-  $external_nodes       = undef,
-  $storeconfigs_backend = undef,
-) {
+class puppet::server::config
+{
   $ini_setting_defaults = {
     'path' => "${::puppet::dir}/puppet.conf",
   }
 
   $ini_settings = { 
     'master'                 => {
-      'ca'                   => $ca,
-      'ca_server'            => $ca_server,
-      'autosign'             => $autosign,
-      'node_terminus'        => $node_terminus,
-      'external_nodes'       => $external_nodes,
-      'storeconfigs'         => $storeconfigs,
-      'storeconfigs_backend' => $storeconfigs_backend,
+      'ca'                   => $::puppet::server::ca,
+      'ca_server'            => $::puppet::server::ca_server,
+      'autosign'             => $::puppet::server::autosign,
+      'node_terminus'        => $::puppet::server::node_terminus,
+      'external_nodes'       => $::puppet::server::external_nodes,
+      'storeconfigs'         => $::puppet::server::storeconfigs,
+      'storeconfigs_backend' => $::puppet::server::storeconfigs_backend,
     }
   }
 
