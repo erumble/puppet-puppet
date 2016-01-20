@@ -18,5 +18,15 @@ class puppet::server::config
   }
 
   create_ini_settings($ini_settings, $ini_setting_defaults)
+
+  augeas { 'puppetserver::jvm':
+    lens    => 'Shellvars.lns',
+    incl    => '/etc/sysconfig/puppetserver',
+    changes => [
+      "set JAVA_ARGS '\"-Xms${::puppet::server::java_Xms} -Xmx${::puppet::server::java_Xmx} -XX:MaxPermSize=256m\"'",
+    ],
+    require => Package['puppetserver'],
+    notify  => Service['puppetserver'],
+  }  
 }
 
