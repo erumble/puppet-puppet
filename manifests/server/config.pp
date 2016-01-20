@@ -2,7 +2,7 @@
 class puppet::server::config
 {
   $ini_setting_defaults = {
-    'path' => "${::puppet::dir}/puppet.conf",
+    'path' => "/etc/puppetlabs/puppet/puppet.conf",
   }
 
   $ini_settings = { 
