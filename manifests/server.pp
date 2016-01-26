@@ -7,15 +7,16 @@ class puppet::server(
 
   # config parameters
   # undef parameters will not be written to config files
-  $java_Xms             = '2g',
-  $java_Xmx             = '2g',
-  $ca                   = undef,
-  $ca_server            = undef,
-  $autosign             = undef,
-  $storeconfigs         = undef,
-  $node_terminus        = undef,
-  $external_nodes       = undef,
-  $storeconfigs_backend = undef,
+  $java_Xms              = '2g',
+  $java_Xmx              = '2g',
+  $ca                    = undef,
+  $ca_server             = undef,
+  $autosign              = undef,
+  $storeconfigs          = undef,
+  $node_terminus         = undef,
+  $external_nodes        = undef,
+  $storeconfigs_backend  = undef,
+  $allow_duplicate_certs = undef,
 
   # service parameters
   $ensure = 'running',
