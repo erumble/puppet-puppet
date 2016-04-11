@@ -21,6 +21,7 @@ class puppet::server(
   # service parameters
   $ensure = 'running',
   $enable = true,
+  $service_name = 'puppetserver',
 ) {
   validate_re($java_Xms, '^[0-9]+[kKmMgG]$')
   validate_re($java_Xmx, '^[0-9]+[kKmMgG]$')
